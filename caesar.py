@@ -11,7 +11,22 @@ def encrypt_caesar(plaintext):
     >>> encrypt_caesar("")
     ''
     """
-    # PUT YOUR CODE HERE
+    ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet = ALPHABET.lower()
+    ciphertext = ''
+
+    for ch in plaintext:
+
+    	if ch in alphabet:
+    		ciphertext += alphabet[(alphabet.index(ch)+3)%26]
+
+    	elif ch in ALPHABET:
+    		ciphertext += ALPHABET[(ALPHABET.index(ch)+3)%26]
+
+    	else:
+    		ciphertext += ch
+
+
     return ciphertext
 
 
@@ -28,5 +43,29 @@ def decrypt_caesar(ciphertext):
     >>> decrypt_caesar("")
     ''
     """
-    # PUT YOUR CODE HERE
+    
+    ALPHABET = 'ZYXWVUTSRQPONMLKJIHGFEDCBA'
+    alphabet = ALPHABET.lower()
+    plaintext = ''
+
+    for ch in ciphertext:
+
+    	if ch in alphabet:
+    		plaintext += alphabet[(alphabet.index(ch)+3)%26]
+
+    	elif ch in ALPHABET:
+    		plaintext += ALPHABET[(ALPHABET.index(ch)+3)%26]
+
+    	else:
+    		plaintext += ch
+
+
     return plaintext
+
+
+def main():
+	print(decrypt_caesar(input()))
+
+
+if __name__ == '__main__':
+	main()
