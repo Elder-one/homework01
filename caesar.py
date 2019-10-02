@@ -61,11 +61,3 @@ def decrypt_caesar(ciphertext):
 
 
     return plaintext
-
-
-def main():
-	print(decrypt_caesar(input()))
-
-
-if __name__ == '__main__':
-	main()
