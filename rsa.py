@@ -88,7 +88,7 @@ def generate_keypair(p, q):
         raise ValueError('Both numbers must be prime.')
     elif p == q:
         raise ValueError('p and q cannot be equal')
-
+    #&&&&&&
     # n = pq
     n = p*q
 
@@ -101,7 +101,7 @@ def generate_keypair(p, q):
     # Use Euclid's Algorithm to verify that e and phi(n) are comprime
     g = gcd(e, phi)
     while g != 1:
-        e = random.randrange(1, phi)
+        e = random.randrange(2, phi)
         g = gcd(e, phi)
 
     # Use Extended Euclid's Algorithm to generate the private key
