@@ -58,6 +58,7 @@ def multiplicative_inverse(e, phi):
     >>> multiplicative_inverse(7, 40)
     23
     """
+    phi_buff = phi
     ab_table = []
 
     while phi % e != 0:
@@ -78,7 +79,7 @@ def multiplicative_inverse(e, phi):
 
         y = buff - y*el
 
-    return y % phi
+    return y % phi_buff
 
 
 
