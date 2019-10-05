@@ -38,7 +38,6 @@ def gcd(a, b):
     >>> gcd(3, 7)
     1
     """
-    # PUT YOUR CODE HERE
     while a > 0 and b > 0:
 
         if a > b:
@@ -59,8 +58,29 @@ def multiplicative_inverse(e, phi):
     >>> multiplicative_inverse(7, 40)
     23
     """
-    # PUT YOUR CODE HERE
-    pass
+    ab_table = []
+
+    while phi % e != 0:
+
+        ab_table.append(phi // e)
+        buff = phi % e
+        phi = e; e = buff
+
+    ab_table.reverse()
+
+    x = 0; y = 1
+
+    for el in ab_table:
+
+        buff = x
+
+        x = y
+
+        y = buff - y*el
+
+    return y % phi
+
+
 
 
 def generate_keypair(p, q):
@@ -70,13 +90,13 @@ def generate_keypair(p, q):
         raise ValueError('p and q cannot be equal')
 
     # n = pq
-    # PUT YOUR CODE HERE
+    n = p*q
 
     # phi = (p-1)(q-1)
-    # PUT YOUR CODE HERE
+    phi = (p-1)(q-1)
 
     # Choose an integer e such that e and phi(n) are coprime
-    e = random.randrange(1, phi)
+    e = random.randrange(2, phi)
 
     # Use Euclid's Algorithm to verify that e and phi(n) are comprime
     g = gcd(e, phi)
